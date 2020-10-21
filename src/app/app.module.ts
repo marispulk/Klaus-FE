@@ -1,9 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { JwPaginationModule } from 'jw-angular-pagination';
+
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
+
+
+import { baseURL } from './_shared/baseurl';
 
 @NgModule({
   declarations: [
@@ -13,9 +18,13 @@ import { UserComponent } from './user/user.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    JwPaginationModule
 
   ],
-  providers: [],
+  providers: [
+    { provide: 'BaseURL', useValue: baseURL }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

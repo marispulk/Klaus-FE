@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../_shared/user';
+import { UserService } from '../_services/user.service'
+
 
 @Component({
   selector: 'app-user',
@@ -7,19 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  userList: any;
-  selectedUser: any;
+  userList: User[];
+  selectedUser: User;
+  pageOfItems: Array<User>;
 
-  constructor() {
-    this.userList = [
-      {"id":10001,"name":"Geraldine Daniel","email":"Estelle_Crona@example.org","avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/fran_mchamy/128.jpg","role":"ADMIN"},
-      {"id":10002,"name":"Hugh Graham","email":"Roxanne30@example.com","avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/a1chapone/128.jpg","role":"AGENT"},
-      {"id":10003,"name":"Johnathan Feeney","email":"Junius35@example.org","avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/puzik/128.jpg","role":"ACCOUNT_MANAGER"},
-      {"id":10010,"name":"Chris Ankunding DVM","email":"Linwood.Fritsch34@example.com","avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/jitachi/128.jpg","role":"EXTERNAL_REVIEWER"}
-    ]
+
+  constructor(private userService: UserService) {
+
    }
 
   ngOnInit(): void {
+    this.getUsers();
   }
 
   getRoleClass(user: any) {
@@ -37,7 +38,16 @@ export class UserComponent implements OnInit {
     }
   }
 
-  onSelect(user: any): void {
+  onSelect(user: User): void {
     this.selectedUser = user;
+  }
+
+  getUsers(): void {
+    this.userService.getUsers()
+        .subscribe(users => this.userList = users);
+  }
+
+  onChangePage(pageOfItems: Array<User>) {
+    this.pageOfItems = pageOfItems;
   }
 }
