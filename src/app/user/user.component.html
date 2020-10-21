@@ -1,0 +1,158 @@
+
+    <!-- Main container -->
+    <div class="container">
+        <!-- Title items div -->
+            <div class="d-flex align-items-center mt-3 mb-3">
+                <div class="col col-4 pl-0">
+                    <span class="pageHeader">Account users</span>
+                </div>
+        <!-- SearchBox and Button div -->
+                <div class="col col-8 d-flex justify-content-end align-items-center pr-0">
+                    <div class="col col-6 input-group searchContainer">
+                        <span class="fas fa-search form-control-feedback"></span>
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary">Connect users</button>
+                    </div>
+                </div>
+            </div>
+    <!-- Container with list items -->
+            <div class="containerList pt-4">
+                <div class="d-flex align-items-center">
+                    <div class="col col-3">
+                        <span class="actionbarName">2 users selected</span>
+                    </div>
+                        <div class="mr-2">
+                            <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-pen"></i> Edit</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+
+                </div>
+    <!-- User list -->
+                <ul class="list-group list-group-flush">
+
+                    <div class="list-group-item text-muted">
+                        <div class="row d-flex align-items-center">
+                            <input type="checkbox" class="col col-1" id="exampleCheck1">
+                            <label class="col col-1 pl-0 mb-0" for="userselect">User</label>
+                            <div class="offset-4 col col-6">
+                                <span for="permissionSelect">Permission</span>
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <li class="userListItem list-group-item mb-1" *ngFor="let user of userList" [class.selected]="user === selectedUser">
+                        <div class="row d-flex align-items-center">
+                            <input class="col col-1" type="checkbox" id="userselect" name="userselect" (click)="onSelect(user)">
+                            <img class="col col-1" src="{{ user.avatar }}" alt="Avatar" class="avatar">
+                            <div class="col col-4">
+                                <div class="row">
+                                    <div class="col col-12">
+                                        {{ user.name }}
+                                    </div>
+                                    <div class="col col-12">
+                                        {{ user.email }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-3">
+                                <h5><span class="badge badge-primary" [ngClass]="getRoleClass(user)">{{ user.role.replace('_', ' ') | titlecase }}</span></h5>
+                            </div>
+                            <div class="col col-3">
+                                <div class="row d-flex justify-content-end align-items-center">
+                                    <div>
+                                        <button class="editButton btn btn-outline-secondary btn-sm mr-1"><i class="fas fa-pen"></i> Edit</button>
+                                    </div>
+                                    <div>
+                                        <button class="deleteButton btn btn-outline-secondary btn-sm"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    <!-- Main container -->
+<div class="container">
+    <!-- Title items div -->
+        <div class="d-flex align-items-center mt-3 mb-3">
+            <div class="col col-4 pl-0">
+                <span class="pageHeader">Account users</span>
+            </div>
+    <!-- SearchBox and Button div -->
+            <div class="col col-8 d-flex justify-content-end align-items-center pr-0">
+                <div class="col col-6 input-group searchContainer">
+                    <span class="fas fa-search form-control-feedback"></span>
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary">Connect users</button>
+                </div>
+            </div>
+        </div>
+<!-- Container with list items -->
+        <div class="containerList pt-4">
+            <div class="d-flex align-items-center">
+                <div class="col col-3">
+                    <span class="actionbarName">2 users selected</span>
+                </div>
+                    <div class="mr-2">
+                        <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-pen"></i> Edit</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-trash"></i> Delete</button>
+                    </div>
+
+            </div>
+<!-- User list -->
+            <ul class="list-group list-group-flush">
+
+                <div class="list-group-item text-muted">
+                    <div class="row d-flex align-items-center">
+                        <input type="checkbox" class="col col-1" id="exampleCheck1">
+                        <label class="col col-1 pl-0 mb-0" for="userselect">User</label>
+                        <div class="offset-4 col col-6">
+                            <span for="permissionSelect">Permission</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <li class="userListItem list-group-item mb-1" *ngFor="let user of userList" [class.selected]="user === selectedUser">
+                    <div class="row d-flex align-items-center">
+                        <input class="col col-1" type="checkbox" id="userselect" name="userselect" (click)="onSelect(user)">
+                        <img class="col col-1" src="{{ user.avatar }}" alt="Avatar" class="avatar">
+                        <div class="col col-4">
+                            <div class="row">
+                                <div class="col col-12">
+                                    {{ user.name }}
+                                </div>
+                                <div class="col col-12">
+                                    {{ user.email }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-3">
+                            <h5><span class="badge badge-primary" [ngClass]="getRoleClass(user)">{{ user.role.replace('_', ' ') | titlecase }}</span></h5>
+                        </div>
+                        <div class="col col-3">
+                            <div class="row d-flex justify-content-end align-items-center">
+                                <div>
+                                    <button class="editButton btn btn-outline-secondary btn-sm mr-1"><i class="fas fa-pen"></i> Edit</button>
+                                </div>
+                                <div>
+                                    <button class="deleteButton btn btn-outline-secondary btn-sm"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>

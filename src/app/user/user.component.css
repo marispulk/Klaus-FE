@@ -1,0 +1,112 @@
+
+
+/* Bootstrap text input with search icon */
+
+.searchContainer .form-control {
+    padding-left: 2.375rem;
+}
+
+.searchContainer .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.containerList {
+    background: #FFFFFF;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.list-group-item{
+    height: 64px;
+}
+
+.editButton {
+    display: none;
+}
+
+.deleteButton {
+    display: none;
+}
+
+.userListItem{
+    cursor: pointer;
+}
+
+.userListItem:hover{
+    cursor: pointer;
+    background-color: #F7FAFC;
+    text-decoration: none;
+}
+.userListItem:hover .editButton {
+    display: inline-block;
+
+}
+
+.userListItem:hover .deleteButton {
+    display: inline-block;
+}
+
+.beginner{
+    background-color: indianred;
+}
+
+.selected{
+    border-left: 5px solid #42A948; /* green */
+}
+
+/* User role color schema */
+.roleAdmin {
+    background-color: #EFE2FE;
+    color: #574195;
+}
+.roleAgent {
+    background-color: #C8E7F9;
+    color: #2C5282;
+}
+.roleAccountManager {
+    background-color:  #FEDDE6;
+    color: #922B6C;
+    ;
+}
+.roleExternalReviewer {
+    background-color: #FEEBC8;
+    color: #91472C;
+}
+
+/* Typography */
+.pageHeader {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 150%;
+    color: #1A202C;
+}
+.actionbarName {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 150%;
+
+    color: #2D3748;
+}
+
+/* Buttons */
+
+
+/* Input */
+.checkboxMain {
+    padding-left: 20px !important;
+}
