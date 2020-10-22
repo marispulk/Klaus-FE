@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../_shared/user';
 import { baseURL } from "../_shared/baseurl";
 
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +16,10 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(baseURL + 'users');
   }
+
+  deleteUser(user: User | number): Observable<User> {
+    const id = typeof user === 'number' ? user : user.id;
+    return this.http.delete<User>(baseURL + 'users' + `/${id}`);
+  }
+
 }
