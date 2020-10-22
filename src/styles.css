@@ -4,3 +4,14 @@ body {
     background-color: #EDF2F7 !important;
     font-family: 'Source Sans Pro', sans-serif !important;
 }
+/* Global schema changes */
+.page-item.active .page-link {
+    z-index: 1;
+    color: white !important;
+    background-color: #475DE5 !important;
+    border-color: #3e51c7 !important;
+}
+.page-link {
+    color: #475DE5 !important;
+}
+

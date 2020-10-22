@@ -13,12 +13,14 @@ export class UserComponent implements OnInit {
   userList: User[];
   selectedUser: User;
   pageOfItems: Array<User>;
-
+  isLoading: boolean = false;
+  userSelectedCounter: number = 0;
+  bulkCheck = false;
 
   constructor(private userService: UserService) {
+  }
 
-   }
-
+   // Calls userService method getUsers(), that retrieves data from JSON server
   ngOnInit(): void {
     this.getUsers();
   }
@@ -26,28 +28,58 @@ export class UserComponent implements OnInit {
   getRoleClass(user: any) {
     if (user.role == "ADMIN") {
       return "roleAdmin";
-    }
-    if(user.role == "AGENT") {
+    } else if(user.role == "AGENT") {
       return "roleAgent";
-    }
-    if(user.role == "ACCOUNT_MANAGER") {
+    } else if(user.role == "ACCOUNT_MANAGER") {
       return "roleAccountManager";
-    }
-    if(user.role == "EXTERNAL_REVIEWER") {
+    } else if(user.role == "EXTERNAL_REVIEWER") {
       return "roleExternalReviewer";
     }
   }
 
-  onSelect(user: User): void {
-    this.selectedUser = user;
+  onUserSelect(user: User, e): void {
+    if(e.target.checked == true) {
+      this.userSelectedCounter++;
+      this.selectedUser = user;
+    }
+    else{
+      this.selectedUser = null;
+      this.userSelectedCounter--;
+    }
   }
 
   getUsers(): void {
+    this.isLoading = true;
     this.userService.getUsers()
-        .subscribe(users => this.userList = users);
+        .subscribe(users => {
+          this.userList = users;
+          this.isLoading = false;
+        });
   }
 
   onChangePage(pageOfItems: Array<User>) {
     this.pageOfItems = pageOfItems;
   }
+
+  // Check/uncheck all textboxes
+  bulkChecks(e) {
+    if(e.target.checked == true) {
+      this.bulkCheck = true;
+    }
+    else{
+      this.bulkCheck = false;
+    }
+  }
+
+  deleteUser(user: User): void {
+    this.userList = this.userList.filter(u => u !== user);
+    this.userService.deleteUser(user).subscribe();
+  }
+
+  sortByRole() {
+   this.userList = this.userList.sort((a,b) => a.role.localeCompare(b.role));
+    console.log(this.userList);
+  }
+
 }
+
