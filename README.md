@@ -1,27 +1,23 @@
 # KlausFE
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
+Live site: https://app-klaus.azurewebsites.net/
 
-## Development server
+# Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Users portal view for Klaus:
+* Front-end design - [DONE]
+* Responsive design - [DONE]
+* JSON server - [DONE]
+* Dynamic role class - [DONE]
+* Spinner and pagination for faster loading - [DONE]
 
-## Code scaffolding
+Additional
+* Live hosting - [DONE]
+* Single row delete - [DONE]
+* Permission sort - [DONE, BUG]
+* Bulk checking - [DONE]
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Screenshots
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Home screen:
+![Home screen](https://i.imgur.com/JIuEf1f.png)
