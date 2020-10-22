@@ -1,1 +1,1 @@
-export const baseURL = 'http://app-klaus-json.azurewebsites.net/';
+export const baseURL = 'https://app-klaus-json.azurewebsites.net/';
