@@ -1,21 +1,21 @@
-# KlausFE
+# User Management Portal
 
 Live site: https://app-klaus.azurewebsites.net/
 
 # Description
 
-Users portal view for Klaus:
-* Front-end design - [DONE]
-* Responsive design - [DONE]
-* JSON server - [DONE]
-* Dynamic role class - [DONE]
-* Spinner and pagination for faster loading - [DONE]
+Users portal:
+* Front-end design
+* Responsive design
+* JSON server
+* Dynamic role class
+* Spinner and pagination for faster loading
 
 Additional
-* Live hosting - [DONE]
-* Single row delete - [DONE]
-* Permission sort - [DONE, BUG]
-* Bulk checking - [DONE]
+* Live hosting
+* Single row delete
+* Permission sort - [BUG]
+* Bulk checking
 
 ## Screenshots
 
